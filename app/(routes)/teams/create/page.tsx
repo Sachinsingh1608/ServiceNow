@@ -37,6 +37,7 @@ function CreateTeam() {
       <div className='flex flex-col items-center mt-8'>
         <h2 className='font-bold text-[40px] py-3'>What should we call your team?</h2>
         <h2 className='text-gray-500'>You can always change this later from settings.</h2>
+        <h2 className='text-gray-500'>Team Name Should be Greater then 3 Character </h2>
         <div className='mt-7 w-[40%]'>
           <label className='text-gray-500'>Team Name</label>
           <Input placeholder='Team Name'

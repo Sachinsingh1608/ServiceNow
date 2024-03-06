@@ -3,6 +3,7 @@ import { Excalidraw, MainMenu, WelcomeScreen } from "@excalidraw/excalidraw";
 import { FILE } from '../../dashboard/_components/FileList';
 import { useMutation } from 'convex/react';
 import { api } from '@/convex/_generated/api';
+import { Main } from 'next/document';
 function Canvas({onSaveTrigger,fileId,fileData}:{onSaveTrigger:any,fileId:any,fileData:FILE}) {
   
     const [whiteBoardData,setWhiteBoardData]=useState<any>();
@@ -20,7 +21,7 @@ function Canvas({onSaveTrigger,fileId,fileData}:{onSaveTrigger:any,fileId:any,fi
     return (
     <div style={{ height: "670px" }}>
    {fileData&& <Excalidraw 
-    theme='light'
+    
     initialData={{
         elements:fileData?.whiteboard&&JSON.parse(fileData?.whiteboard)
     }}
@@ -29,17 +30,21 @@ function Canvas({onSaveTrigger,fileId,fileData}:{onSaveTrigger:any,fileId:any,fi
     UIOptions={{
         canvasActions:{
             saveToActiveFile:false,
-            loadScene:false,
-            export:false,
-            toggleTheme:false
+            loadScene:true,
+        
+           
 
         }
     }}
     >
         <MainMenu>
             <MainMenu.DefaultItems.ClearCanvas/>
+           
+            <MainMenu.DefaultItems.Export/>
             <MainMenu.DefaultItems.SaveAsImage/>
             <MainMenu.DefaultItems.ChangeCanvasBackground/>
+            <MainMenu.DefaultItems.ToggleTheme/>
+            
         </MainMenu>
         <WelcomeScreen>
             <WelcomeScreen.Hints.MenuHint/>
