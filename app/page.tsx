@@ -4,9 +4,11 @@ import Header from "./_components/Header";
 import Hero from "./_components/Hero";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { useEffect } from "react";
+import WorkspaceHeader from "./(routes)/workspace/_components/WorkspaceHeader";
+import Canvas from "./(routes)/workspace/_components/Canvas";
 
 export default function Home() {
-
+  
   const {user}=useKindeBrowserClient();
 
   useEffect(()=>{
@@ -14,8 +16,10 @@ export default function Home() {
   },[user])
   return (
     <div>
-      <Header/>
-      <Hero/>
+      <WorkspaceHeader/>
+      <Canvas
+            
+            />
     </div>
   );
 }

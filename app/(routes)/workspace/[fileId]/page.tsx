@@ -37,9 +37,7 @@ function Workspace({params}:any) {
         {/* Whiteboard/canvas  */}
         <div className=' w-screen border-l'>
             <Canvas
-             onSaveTrigger={triggerSave}
-             fileId={params.fileId}
-             fileData={fileData}
+            
             />
         </div>
       </div>
