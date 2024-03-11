@@ -1,9 +1,15 @@
-
+import dynamic from "next/dynamic";
 import Image from "next/image";
 
 
 import WorkspaceHeader from "./(routes)/workspace/_components/WorkspaceHeader";
-import Canvas from "./(routes)/workspace/_components/Canvas";
+
+const Canvas = dynamic(
+  async () => (await import("./(routes)/workspace/_components/Canvas")).default,
+  {
+    ssr: false,
+  },
+);
 
 export default function Home() {
   

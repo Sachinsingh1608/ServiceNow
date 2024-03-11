@@ -1,5 +1,13 @@
+"use client"
 import React, { useEffect, useState } from 'react'
-import { Excalidraw, LiveCollaborationTrigger, MainMenu, WelcomeScreen } from "@excalidraw/excalidraw";
+import {  LiveCollaborationTrigger, MainMenu, WelcomeScreen } from "@excalidraw/excalidraw";
+import dynamic from "next/dynamic";
+const Excalidraw = dynamic(
+  async () => (await import("@excalidraw/excalidraw")).Excalidraw,
+  {
+    ssr: false,
+  },
+);
 
 function Canvas() {
   
