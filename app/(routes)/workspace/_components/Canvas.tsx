@@ -1,6 +1,6 @@
 "use client"
-import React, { useEffect, useState } from 'react';
-import { LiveCollaborationTrigger, MainMenu, WelcomeScreen } from "@excalidraw/excalidraw";
+import React, { useEffect, useState } from 'react'
+import {  LiveCollaborationTrigger, MainMenu, WelcomeScreen } from "@excalidraw/excalidraw";
 import dynamic from "next/dynamic";
 
 const Excalidraw = dynamic(
@@ -11,52 +11,53 @@ const Excalidraw = dynamic(
 );
 
 function Canvas() {
-  const [excalidrawElements, setExcalidrawElements] = useState([] as any);
-
-  useEffect(() => {
-    // Load saved state from storage on component mount
-    const savedState = localStorage.getItem("excalidrawState");
-    if (savedState) {
-      setExcalidrawElements(JSON.parse(savedState));
-    }
-  }, []);
-
-  const handleExcalidrawChange = (elements: any, appState: any, files: any) => {
-    // Save state to storage whenever it changes
-    localStorage.setItem("excalidrawState", JSON.stringify(elements));
-    setExcalidrawElements(elements);
-  };
-
-  return (
+  
+    
+    return (
     <div style={{ height: "800px" }}>
-      <Excalidraw
-        onChange={handleExcalidrawChange}
-        initialData={{ elements: excalidrawElements }}
-        UIOptions={{
-          canvasActions: {
-            saveToActiveFile: false,
-            loadScene: true,
-          }
-        }}
-      >
+   { <Excalidraw
+   
+   
+   
+    
+   
+    onChange={(excalidrawElements, appState, files)=>
+        (excalidrawElements)}
+    UIOptions={{
+        canvasActions:{
+            saveToActiveFile:false,
+            loadScene:true,
+            
+        
+           
+
+        }
+    }}
+    >
         <MainMenu>
-          <MainMenu.DefaultItems.ClearCanvas />
-          <MainMenu.DefaultItems.Export />
-          <MainMenu.DefaultItems.SaveAsImage />
-          <MainMenu.DefaultItems.ToggleTheme />
-          <MainMenu.DefaultItems.ChangeCanvasBackground />
+            <MainMenu.DefaultItems.ClearCanvas/>
+           
+            <MainMenu.DefaultItems.Export/>
+            <MainMenu.DefaultItems.SaveAsImage/>
+          
+            <MainMenu.DefaultItems.ToggleTheme/>
+            <MainMenu.DefaultItems.ChangeCanvasBackground/>
+    
+            
         </MainMenu>
         <WelcomeScreen>
-          <WelcomeScreen.Hints.MenuHint />
-          <WelcomeScreen.Hints.MenuHint />
-          <WelcomeScreen.Hints.ToolbarHint />
-          <WelcomeScreen.Center>
-            <WelcomeScreen.Center.MenuItemHelp />
-          </WelcomeScreen.Center>
+            <WelcomeScreen.Hints.MenuHint/>
+            <WelcomeScreen.Hints.MenuHint/>
+            <WelcomeScreen.Hints.ToolbarHint/>
+      
+            <WelcomeScreen.Center>
+                <WelcomeScreen.Center.MenuItemHelp/>
+            </WelcomeScreen.Center>
         </WelcomeScreen>
-      </Excalidraw>
-    </div>
-  );
+        
+        </Excalidraw>}
+  </div>
+  )
 }
 
-export default Canvas;
+export default Canvas
