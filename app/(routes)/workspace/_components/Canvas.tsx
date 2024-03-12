@@ -10,54 +10,59 @@ const Excalidraw = dynamic(
   },
 );
 
-function Canvas() {
-  
-    
-    return (
-    <div style={{ height: "800px" }}>
-   { <Excalidraw
-   
-   
-   
-    
-   
-    onChange={(excalidrawElements, appState, files)=>
-        (excalidrawElements)}
-    UIOptions={{
-        canvasActions:{
-            saveToActiveFile:false,
-            loadScene:true,
-            
-        
-           
+// Custom Logo component
+const CustomLogo = () => {
+  return (
+    <img src="/ServiceNow_logo.svg.png" 
 
-        }
-    }}
-    >
+    height={100}
+    width={100}
+    alt="Custom Logo" />
+  );
+};
+const MainLogo = () => {
+    return (
+      <img src="/ServiceNow_logo.svg.png" 
+  
+      height={500}
+      width={500}
+      alt="Custom Logo" />
+    );
+  };
+
+function Canvas() {
+  return (
+    <div style={{ height: "800px" }}>
+      <Excalidraw
+        onChange={(excalidrawElements, appState, files) => (excalidrawElements)}
+        UIOptions={{
+          canvasActions: {
+            saveToActiveFile: false,
+            loadScene: true,
+          }
+        }}
+      >
         <MainMenu>
-            <MainMenu.DefaultItems.ClearCanvas/>
-           
-            <MainMenu.DefaultItems.Export/>
-            <MainMenu.DefaultItems.SaveAsImage/>
-          
-            <MainMenu.DefaultItems.ToggleTheme/>
-            <MainMenu.DefaultItems.ChangeCanvasBackground/>
-    
-            
+        <CustomLogo />
+          <MainMenu.DefaultItems.ClearCanvas/>
+        
+          <MainMenu.DefaultItems.Export/>
+          <MainMenu.DefaultItems.SaveAsImage/>
+          <MainMenu.DefaultItems.ToggleTheme/>
+          <MainMenu.DefaultItems.ChangeCanvasBackground/>
         </MainMenu>
         <WelcomeScreen>
-            <WelcomeScreen.Hints.MenuHint/>
-            <WelcomeScreen.Hints.MenuHint/>
-            <WelcomeScreen.Hints.ToolbarHint/>
-      
-            <WelcomeScreen.Center>
-                <WelcomeScreen.Center.MenuItemHelp/>
-            </WelcomeScreen.Center>
+          <WelcomeScreen.Hints.MenuHint/>
+          <WelcomeScreen.Hints.MenuHint/>
+          <WelcomeScreen.Hints.ToolbarHint/>
+          <WelcomeScreen.Center>
+            <WelcomeScreen.Center.MenuItemHelp/>
+           <MainLogo/>
+          </WelcomeScreen.Center>
         </WelcomeScreen>
-        
-        </Excalidraw>}
-  </div>
+      </Excalidraw>
+    </div>
   )
 }
 
-export default Canvas
+export default Canvas;
