@@ -56,7 +56,7 @@ function Canvas() {
           <WelcomeScreen.Hints.MenuHint/>
           <WelcomeScreen.Hints.ToolbarHint/>
           <WelcomeScreen.Center>
-            <WelcomeScreen.Center.MenuItemHelp/>
+            
            <MainLogo/>
           </WelcomeScreen.Center>
         </WelcomeScreen>
