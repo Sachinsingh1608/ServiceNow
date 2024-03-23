@@ -10,8 +10,8 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "ServiceNow-WhiteBoard",
-  description: "ServiceNow-WhiteBoard",
+  title: "WhiteBoard.io",
+  description: "WhiteBoard.io",
 };
 
 export default function RootLayout({
